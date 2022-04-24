@@ -27,10 +27,10 @@ return [
 	|
 	*/
 
-	'auth_method' => env('CLICKUP_PARTY_AUTH', 'token'),
+	'auth_method' => env('CLICKUP_PARTY_AUTH', 'personal'),
 
 	'auth_methods' => [
-		'token' => [
+		'personal' => [
 			'token' => env('CLICKUP_API_TOKEN', 'pk_00000000_XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'),
 		],
 
