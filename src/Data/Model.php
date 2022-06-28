@@ -1,9 +1,9 @@
 <?php
 
-namespace Dakralex\ClickUpParty\Data;
+namespace Dakralex\ClickupParty\Data;
 
 use ArrayAccess;
-use Dakralex\ClickUpParty\Concerns\HasProperties;
+use Dakralex\ClickupParty\Concerns\HasProperties;
 use JsonException;
 use JsonSerializable;
 
@@ -11,7 +11,7 @@ abstract class Model implements ArrayAccess, JsonSerializable
 {
     use HasProperties;
 
-    protected string $entityIdentifier = 'model';
+    public string $entityIdentifier = 'model';
 
     public bool $existsRemotely = false;
 

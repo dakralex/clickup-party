@@ -1,8 +1,8 @@
 <?php
 
-namespace Dakralex\ClickUpParty\Concerns;
+namespace Dakralex\ClickupParty\Concerns;
 
-use Dakralex\ClickUpParty\Support\Str;
+use Dakralex\ClickupParty\Support\Str;
 use Illuminate\Support\Carbon;
 
 trait HasProperties
