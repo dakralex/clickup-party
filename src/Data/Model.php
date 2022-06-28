@@ -44,7 +44,7 @@ abstract class Model implements ArrayAccess, JsonSerializable
      */
     public function __get(string $key)
     {
-        return $this->getProperty($key);
+        return $this->offsetGet($key);
     }
 
     /**
@@ -56,7 +56,7 @@ abstract class Model implements ArrayAccess, JsonSerializable
      */
     public function __set(string $key, $value)
     {
-        $this->setProperty($key, $value);
+        $this->offsetSet($key, $value);
     }
 
     /**
@@ -67,7 +67,7 @@ abstract class Model implements ArrayAccess, JsonSerializable
      */
     public function __isset(string $key): bool
     {
-        return isset($this->properties[$key]);
+        return $this->offsetExists($key);
     }
 
     /**
@@ -78,7 +78,52 @@ abstract class Model implements ArrayAccess, JsonSerializable
      */
     public function __unset(string $key)
     {
-        unset($this->properties[$key]);
+        $this->offsetUnset($key);
+    }
+
+    /**
+     * Check whether offset exists in instance.
+     *
+     * @param $offset
+     * @return bool
+     */
+    public function offsetExists($offset): bool
+    {
+        return !is_null($this->getProperty($offset));
+    }
+
+    /**
+     * Return the value of an offset.
+     *
+     * @param $offset
+     * @return mixed|null
+     */
+    public function offsetGet($offset)
+    {
+        return $this->getProperty($offset);
+    }
+
+    /**
+     * Set the value of an offset.
+     *
+     * @param $offset
+     * @param $value
+     * @return void
+     */
+    public function offsetSet($offset, $value)
+    {
+        $this->setProperty($offset, $value);
+    }
+
+    /**
+     * Unset the value of an offset.
+     *
+     * @param $offset
+     * @return void
+     */
+    public function offsetUnset($offset)
+    {
+        unset($this->properties[$offset]);
     }
 
     /**
