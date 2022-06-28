@@ -1,6 +1,6 @@
 <?php
 
-namespace Dakralex\ClickUpParty\Support;
+namespace Dakralex\ClickupParty\Support;
 
 use Illuminate\Support\Str as IlluminateStr;
 
